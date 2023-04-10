@@ -14,6 +14,9 @@ const Main = () => {
   const handleClear = () => {
     settodolist([])
   }
+  
+
+
 
 
 
@@ -34,13 +37,13 @@ const Main = () => {
             }
             </ul>
           </div>
-          <div>
-            <h2>
-              voce tem x tarefas
-            </h2>
-            <button className="delete text-light" onClick={handleClear}> <i className="fa-solid fa-trash"></i>  </button> 
+          <div className="tarefas">
           
-        
+            <h2>
+              voce tem {todolist.length} tarefas pendentes
+            </h2>
+            <button className="delete text-light" onClick={handleClear}> <i className="fa-solid fa-trash"></i>  </button>
+    
           </div>
         </div>
     );
