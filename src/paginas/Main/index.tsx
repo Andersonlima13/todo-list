@@ -33,7 +33,7 @@ const Main = () => {
           <div className='todo-list'>
             <ul>
             {todolist.map((todo) => 
-            <li className='list-item text-light'> {todo}</li>)
+            <li onClick={() => DeleteItem(todo.id)} className='list-item text-light'> {todo}</li>)
             }
             </ul>
           </div>
