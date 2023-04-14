@@ -3,17 +3,31 @@ import React, { useState } from "react";
 import './styles.css'
 
 
+
+interface IInputValue{
+  id: number,
+  nameValue:string,
+}
+
+
+
 const Main = () => {
   const [inputValue, setInputValue] = useState("");
-  const [todolist, settodolist] = useState<string[]>([]);
+  const [todolist, settodolist] = useState<IInputValue[]>([]);
 
   const handleAddClick = () => {
+
+    const IRandom = (num: number) => Math.floor(Math.random() * num)
+    const newTask = {id: IRandom(1000), nameTask:inputValue}
+
     settodolist([ ...todolist, inputValue]) //...(spread) vai continuar adicionando itens ao array, // sem ele o valor seria substituido, guardando apenas um valor (inputvalue) é o novo valor
     setInputValue('')
   };
   const handleClear = () => {
     settodolist([])
   }
+
+
   
 
 
@@ -33,7 +47,7 @@ const Main = () => {
           <div className='todo-list'>
             <ul>
             {todolist.map((todo) => 
-            <li onClick={() => DeleteItem(todo.id)} className='list-item text-light'> {todo}</li>)
+            <li  className='list-item text-light'>  {todo}   </li>)
             }
             </ul>
           </div>

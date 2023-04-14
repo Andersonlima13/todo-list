@@ -50,7 +50,6 @@
 }
 
 .list-item {
-    
     border-radius: 50px;
     list-style: none;
     background-color: rgb(23, 13, 107);
@@ -73,4 +72,8 @@
     align-items: center;
     margin-left: 15px;
 
+}
+
+.clica {
+    cursor:pointer;
 }
