@@ -63,11 +63,14 @@ export const Spacer = styled.div`
 `;
 
 export const Button = styled.button`
+  justify-content:center;
+  align-items:center;
+ display: flex;
   width: 112px;
   height: 50px;
   background: #da2535;
   border-radius: 10px;
-  border: none;
+  border: bold;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;

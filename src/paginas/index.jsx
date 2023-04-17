@@ -1,6 +1,9 @@
-import { Button, Container, Flex, Input, Item, Spacer } from "../components/Button/"
+import { Button, Container, Flex, Input, Item, Spacer } from "../components"
 
 import { useState } from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faListCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -9,6 +12,14 @@ import { useState } from "react";
 function App() {
   const [task, setTask] = useState("");
   const [listTask, setListTask] = useState([]);
+
+  const DeleteAll = () => {
+    
+    if (!setListTask([])) return alert("Nenhuma tarefa para excluir");
+    setListTask([])
+  }
+  
+ 
 
   const addTask = () => {
     if (!task) return alert("Preencha uma tarefa");
@@ -39,12 +50,15 @@ function App() {
       <Spacer />
 
       <Flex direction="row">
+      <Button className="text-light" onClick={DeleteAll}>
+                APAGAR TUDO </Button>
         <Input
           value={task}
           placeholder="Digite sua tarefa"
           onChange={(e) => setTask(e.target.value)}
         />
-        <Button onClick={addTask}>Adicionar</Button>
+        <Button  onClick={addTask}>Adicionar</Button>
+      
       </Flex>
       <Spacer margin="16px" />
 
@@ -54,12 +68,13 @@ function App() {
             <Item Item checked={task.checked} key={task.id}>
               <p>{task.task}</p>
               <Flex direction="row">
-                <button onClick={() => toggleChecked(task.id, task.checked)}>
-                  
-                </button>
-                <button onClick={() => removeTask(task.id)}>
-                  
-                </button>
+                <Button className="text-dark" onClick={() => toggleChecked(task.id, task.checked)}>
+               CONCLUÍDA <FontAwesomeIcon icon={faListCheck}/>
+                </Button>
+                <Button className="text-dark" onClick={() => removeTask(task.id)}>
+                APAGAR <FontAwesomeIcon icon={faTrash}/>
+                </Button>
+                
               </Flex>
             </Item>
             <Spacer margin="12px" />
